@@ -1,0 +1,180 @@
+@imagePickerPrefixCls: vie-image-picker;
+@idPickerPrefixCls: vie-id-picker;
+@photoPickerPrefixCls: vie-photo-picker;
+@cropperPickerPrefixCls: vie-cropper-picker;
+
+.@{imagePickerPrefixCls} {
+  &-list {
+    .vie-flexbox {
+      flex-wrap: wrap;
+
+      &-list {
+        position: relative;
+        margin: 0 px2rem(@h-spacing-sm) px2rem(@h-spacing-sm) 0;
+        width: calc(~'25vw - .75 * 10px - .5 * 16px');
+        height: calc(~'25vw - .75 * 10px - .5 * 16px');
+
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .@{imagePickerPrefixCls}-item {
+      height: 100%;
+
+      .@{imagePickerPrefixCls}-item-remove {
+        width: px2rem(32px);
+        height: px2rem(32px);
+        position: absolute;
+        right: px2rem(-16px);
+        top: px2rem(-16px);
+        text-align: right;
+        vertical-align: top;
+        z-index: 2;
+        background-size: px2rem(32px) auto;
+        .encoded-svg-background('image_picker_delete');
+      }
+
+      .@{imagePickerPrefixCls}-item-content {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+      }
+    }
+
+    .@{imagePickerPrefixCls}-upload-btn {
+      box-sizing: border-box;
+      border: @border-width-sm solid @border-color-base;
+      background-color: @fill-base;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      input {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+      }
+      .image-picker-tips-text{
+        color: #333;
+        text-align: center;
+        font-size: 13px;
+      }
+      .image-picker-tips-icon{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width: px2rem(80px);
+        height: px2rem(80px);
+        background: #ffffff;
+        border-radius: 50%;
+        margin: 0 auto px2rem(12px);
+        .svg-add{
+          width: px2rem(44px);
+          height: px2rem(44px);
+          fill: #eeeeee;
+        }
+      }
+      .@{imagePickerPrefixCls}-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.@{idPickerPrefixCls} {
+  .vie-flexbox-list{
+    width: 100% !important;
+    height: px2rem(400px) !important;
+    margin-bottom: px2rem(40px) !important;
+    margin-right: 0 !important;
+    &:last-child{
+      margin-bottom: 0 !important;
+    }
+  }
+  .@{imagePickerPrefixCls}-item{
+    position: relative;
+    width: 100%;
+    height: px2rem(400px);
+    margin-bottom: px2rem(40px);
+    border-radius: px2rem(8px);
+    &:last-child{
+      margin-bottom: 0;
+    }
+    .@{imagePickerPrefixCls}-item-remove {
+      right: 6 * @hd;
+      top: 6 * @hd;
+    }
+  }
+  .@{imagePickerPrefixCls}-upload-btn{
+    border-radius: px2rem(8px);
+    border: 1px solid #eeeeee !important;
+    background-color: #eeeeee !important;
+    input{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+    }
+  }
+  .@{imagePickerPrefixCls}-item-content{
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: px2rem(8px);
+  }
+}
+
+// 头像上传
+.@{photoPickerPrefixCls}{
+  .upload-input {
+    width:100%;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    opacity:0;
+    z-index: 1;
+  }
+  .author-avatar{
+    width: px2rem(100px);
+    height: px2rem(100px);
+    .upload-list, .upload-item-content, img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: 50%;
+    }
+  }
+}
+
+.vue-cropper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 2 !important;
+}
+.@{cropperPickerPrefixCls} {
+  width: 100%;
+  z-index:2;
+  position:absolute;
+  bottom:0;
+  button {
+    width: 50%;
+    height: 30px;
+    box-sizing:border-box;
+  }
+}
+

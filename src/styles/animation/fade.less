@@ -1,0 +1,26 @@
+.@{prefixCls}@{pickerAnimationPrefixCls}{
+  &-fade-enter-active,&-fade-appear{
+    opacity: 0;
+    animation: rocoFadeIn .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+  &-fade-leave-active{
+    animation: rocoFadeOut .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+}
+
+@keyframes rocoFadeIn {
+    0% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+}
+@keyframes rocoFadeOut {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+}

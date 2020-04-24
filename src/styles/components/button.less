@@ -1,0 +1,115 @@
+@buttonPrefixCls: -button;
+
+.@{prefixCls}@{buttonPrefixCls} {
+  // do not use width:100%, can not set margin
+  display: inline-block;
+  outline: 0 none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  .font-dpr(@button-font-size);
+  height: px2rem(@button-height);
+  line-height: px2rem(@button-height);
+  border-radius: @radius-md;
+  padding: 0 px2rem(@h-spacing-lg);
+  // default
+  color: @color-text-base;
+  background-color: @fill-base;
+  border: @border-width-sm solid @border-color-base;
+  // &:active, // uc browser not work normal
+  &:active {
+    background-color: @fill-tap;
+  }
+  &-primary {
+    color: @color-text-base-inverse;
+    background-color: @primary-button-fill;
+    border: @border-width-sm solid @primary-button-fill;
+    // &:active, // uc browser not work normal
+    &:active{
+      background-color: @primary-button-fill-tap;
+    }
+  }
+  &-success {
+    color: @color-text-base-inverse;
+    background-color: @success-button-fill;
+    border: @border-width-sm solid @success-button-fill;
+    // &:active, // uc browser not work normal
+    &:active{
+      background-color: @success-button-fill-tap;
+    }
+  }
+  &-warning {
+    color: @color-text-base-inverse;
+    background-color: @warning-button-fill;
+    border: @border-width-sm solid @warning-button-fill;
+    // &:active, // uc browser not work normal
+    &:active {
+      background-color: @warning-button-fill-tap;
+    }
+  }
+  &-error {
+    color: @color-text-base-inverse;
+    background-color: @error-button-fill;
+    border: @border-width-sm solid @error-button-fill;
+    // &:active, // uc browser not work normal
+    &:active {
+      background-color: @error-button-fill-tap;
+    }
+  }
+  &-ghost {
+    color: @ghost-button-color;
+    background-color: transparent;
+    border: @border-width-sm solid @ghost-button-color;
+    // &:active, // uc browser not work normal
+    &:active {
+      color: @color-text-base-inverse;
+      background-color: @ghost-button-fill-tap;
+      border: @border-width-sm solid @ghost-button-color;
+    }
+  }
+  &-inline {
+    display: inline-block;
+    padding: 0 px2rem(@h-spacing-lg);
+  }
+  &-long {
+    width: 100%;
+  }
+  &-small {
+    .font-dpr(@button-font-size-sm);
+    height: px2rem(@button-height-sm);
+    line-height: px2rem(@button-height-sm);
+    padding: 0 px2rem(@h-spacing-lg);
+    border-radius: @radius-md;
+  }
+  &,
+  &-primary,
+  &-ghost,
+  &-warning,
+  &-success,
+  &-error {
+    &.@{prefixCls}@{buttonPrefixCls}-across {
+      width: 100%;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+    &.@{prefixCls}@{buttonPrefixCls}-disabled {
+      color: @color-text-disabled;
+      background-color: @fill-disabled;
+      border: 0;
+    }
+  }
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  > .vie-icon {
+    margin-right: 0.5em;
+    .font-dpr(35px);
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+  }
+}

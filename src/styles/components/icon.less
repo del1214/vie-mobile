@@ -1,0 +1,36 @@
+@iconPrefixCls: -icon;
+.@{prefixCls}@{iconPrefixCls} {
+  fill: currentColor;
+  background-size: cover;
+  width: px2rem(@icon-size-md);
+  height: px2rem(@icon-size-md);
+  &-xxs {
+    width: px2rem(@icon-size-xxs);
+    height: px2rem(@icon-size-xxs);
+  }
+  &-xs {
+    width: px2rem(@icon-size-xs);
+    height: px2rem(@icon-size-xs);
+  }
+  &-sm {
+    width: px2rem(@icon-size-sm);
+    height: px2rem(@icon-size-sm);
+  }
+  &-md {
+    width: px2rem(@icon-size-md);
+    height: px2rem(@icon-size-md);
+  }
+  &-lg {
+    width: px2rem(@icon-size-lg);
+    height: px2rem(@icon-size-lg);
+  }
+  &-loading {
+    animation: cirle-anim 1s linear infinite;
+    transform-origin: center center;
+  }
+  @keyframes cirle-anim {
+    100% {
+      transform: rotate(-0.05deg);
+    }
+  }
+}

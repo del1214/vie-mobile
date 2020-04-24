@@ -1,0 +1,27 @@
+.@{prefixCls}@{pickerAnimationPrefixCls}{
+  &-slide-enter-active,&-slide-appear{
+    transform: translate(0, 100%);
+    animation: rocoSlideIn .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+  &-slide-leave-active{
+    animation: rocoSlideOut .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  }
+}
+
+@keyframes rocoSlideIn {
+    0% {
+        transform: translate(0, 100%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes rocoSlideOut {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, 100%);
+    }
+}

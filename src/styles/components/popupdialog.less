@@ -1,0 +1,181 @@
+@PopupDialogPrefixCls: vie-popup-dialog;
+.@{PopupDialogPrefixCls}-container{
+  display: flex;
+  flex-direction: column;
+}
+.@{PopupDialogPrefixCls} {
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @action-sheet-zindex;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: @fill-mask;
+    height: 100%;
+    z-index: @action-sheet-zindex;
+  }
+  &-hidden {
+    display: none;
+  }
+  // 隐藏掉 dialog 默认的 x 按钮
+  &-close {
+    display: none;
+  }
+}
+
+
+
+// @import './base';
+
+.@{PopupDialogPrefixCls} {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: @fill-base;
+
+  &&-share {
+    background-color: #f2f2f2;
+  }
+
+  &-title {
+    // margin: px2rem(@h-spacing-lg) auto;
+    padding: px2rem(@h-spacing-lg) px2rem(@h-spacing-lg);
+    text-align: center;
+    position: relative;
+  }
+
+  &-title {
+    color: @color-text-paragraph;
+    // font-size: @font-size-heading;
+    .font-dpr(@font-size-subhead);
+
+    .@{prefixCls}@{iconPrefixCls}.@{prefixCls}@{iconPrefixCls}-close{
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: px2rem(30px);
+      color: @color-text-caption;
+    }
+  }
+
+  &-zwrap {
+    height: px2rem(473px);
+    position: relative;
+    overflow: hidden;
+    &-content{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1001;
+      padding-bottom: px2rem(98px);
+    }
+    &-footer{
+      position: relative;
+      height: px2rem(87px);
+      width: 100%;
+    }
+  }
+  // &-button-list {
+  //   text-align: center;
+  //   color: @color-text-base;
+
+  //   &-item {
+  //     font-size: @actionsheet-item-font-size;
+  //     padding: 0;
+  //     margin: 0;
+  //     position: relative;
+  //     height: @actionsheet-item-height;
+  //     line-height: @actionsheet-item-height;
+  //     box-sizing: border-box;
+  //     .hairline('top');
+  //     &:active {
+  //       background-color: @fill-tap;
+  //     }
+  //   }
+
+  //   .@{PopupDialogPrefixCls}-cancel-button {
+  //     margin-top: px2rem(@v-spacing-sm);
+  //     position: relative;
+
+  //     &-mask {
+  //       position: absolute;
+  //       top: px2rem(-@v-spacing-sm);
+  //       left: 0;
+  //       width: 100%;
+  //       height: px2rem(@v-spacing-sm);
+  //       background-color: #e7e7ed;
+  //       .hairline('top');
+  //       .hairline('bottom');
+  //     }
+  //   }
+
+  //   .@{PopupDialogPrefixCls}-destructive-button {
+  //     color: @brand-error;
+  //   }
+  // }
+
+  // &-share {
+  //   &-list {
+  //     display: flex;
+  //     position: relative;
+  //     .hairline('top');
+
+  //     padding: px2rem(@v-spacing-xl) 0 px2rem(@v-spacing-xl) px2rem(@h-spacing-lg);
+  //     overflow-y: scroll;
+  //     -webkit-overflow-scrolling: touch;
+
+  //     &-item {
+  //       flex: none;
+  //       margin: 0 12 * @hd 0 0;
+
+  //       &-icon {
+  //         margin-bottom: px2rem(@v-spacing-md);
+  //         width: 60 * @hd;
+  //         height: 60 * @hd;
+  //         background-color: @fill-base;
+  //         border-radius: @radius-sm;
+  //         display: flex;
+  //         justify-content: center;
+  //         align-items: center;
+  //       }
+
+  //       &-title {
+  //         color: @color-text-caption;
+  //         .font-dpr(@font-size-icontext);
+  //         text-align: center;
+  //       }
+  //     }
+  //   }
+
+  //   &-cancel-button {
+  //     height: @actionsheet-item-height;
+  //     line-height: @actionsheet-item-height;
+  //     text-align: center;
+  //     background-color: @fill-base;
+  //     color: @color-text-base;
+  //     .font-dpr(@button-font-size);
+  //     position: relative;
+  //     .hairline('top');
+  //     box-sizing: border-box;
+
+  //     &&-active {
+  //       background-color: @fill-tap;
+  //     }
+  //   }
+  // }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>vie-mobile</title>
+  <link rel=stylesheet href=/css/vie-mobile.css>
+  <script src="/static/vendors/vue/vue.min.js"></script>
+  <script src="/static/vendors/moment/moment.min.js"></script>
+  <script src=/static/libs/flexible.js></script>
+  <script src=/static/libs/axios.min.js></script>
+</head>
+
+<body>
+  <div id=app>
+    <button @click="visible=true">点我</button>
+    <h4>{{getSelectedStr}}</h4>
+    <PopupPicker v-if="popupData" title="选择省市区" :visible.sync="visible" :cols="3" :data="popupData" :selected-values.sync="popupSelectedValues" :selected-results.sync="popSelectedResults"></PopupPicker>
+  </div>
+  <script>
+    // vie.Toast.info('aaa')
+    var aaa = null
+    document.addEventListener('DOMContentLoaded', function () {
+      aaa = new Vue({
+        el: '#app',
+        data:{
+          visible: false,
+          popupData: null,
+          popupSelectedValues: [],
+          popSelectedResults: []
+        },
+        created: function(){
+          let self = this
+          axios.get('/static/data.json').then(function (res) {
+            self.popupData = res.data
+          })
+        },
+        mounted: function () {
+          console.log('mounted')
+        },
+        computed: {
+          getSelectedStr(){
+            return this.popSelectedResults.map(function(obj){
+              console.log(obj)
+              return obj.label
+            }).join('-')
+          }
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

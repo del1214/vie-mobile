@@ -1,0 +1,101 @@
+@flexBoxPrefixCls: -flexbox;
+
+.@{prefixCls}@{flexBoxPrefixCls}{
+    display: flex;
+    //水平布局
+    &&-dir-row {
+        flex-direction: row;
+    }
+    &&-dir-row-reverse {
+        flex-direction: row-reverse;
+    }
+    //垂直布局
+    &&-dir-column{
+        flex-direction: column;
+        .@{flexBoxPrefixCls}-item{
+            width: 100%;
+        }
+    }
+    &&-dir-column-reverse {
+        flex-direction: column-reverse;
+    }
+    //垂直布局 - 两端固定，中间区域自适应
+    &&-dir-column-justify{
+        height: 100vh;
+        flex-direction: column;
+    }
+    //换行
+    &&-wrap {
+        flex-wrap: wrap;
+    }
+    &&-nowrap {
+        flex-wrap: nowrap;
+    }
+    &&-wrap-reverse {
+        flex-wrap: wrap-reverse;
+    }
+    //水平对齐方式
+    &&-justify-start {
+        justify-content: flex-start;
+    }
+    &&-justify-end {
+        justify-content: flex-end;
+    }
+    &&-justify-center {
+        justify-content: center;
+    }
+    &&-justify-between {
+        justify-content: space-between;
+    }
+    &&-justify-around {
+        justify-content: space-around;
+    }
+    //垂直对齐方式
+    &&-align-top {
+        align-items: flex-start;
+    }
+    &&-align-bottom {
+        align-items: flex-end;
+    }
+    &&-align-middle {
+        align-items: center;
+    }
+    &&-align-stretch {
+        align-items: stretch;
+    }
+    &&-align-baseline {
+        align-items: baseline;
+    }
+    //flexbox子项,默认平分
+    & &-item{
+        box-sizing: border-box;
+        flex: 1;
+        min-width: 20px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    //暂时未使用
+    //align-content
+    &&-align-content-start {
+        align-content: flex-start;
+    }
+
+    &&-align-content-end {
+        align-content: flex-end;
+    }
+
+    &&-align-content-middle {
+        align-content: center;
+    }
+
+    &&-align-content-stretch {
+        align-content: stretch;
+    }
+
+    &&-align-content-baseline {
+        align-content: baseline;
+    }
+
+}

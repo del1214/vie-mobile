@@ -1,0 +1,31 @@
+.@{prefixCls}@{pickerAnimationPrefixCls} {
+    &-zoom-enter-active,
+    &-zoom-appear {
+        opacity: 0;
+        animation: rocoZoomIn .3s cubic-bezier(0.08, 0.82, 0.17, 1);
+    }
+    &-zoom-leave-active {
+        animation: rocoZoomOut .3s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    }
+}
+
+@keyframes rocoZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes rocoZoomOut {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+}

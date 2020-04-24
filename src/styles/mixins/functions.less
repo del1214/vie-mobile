@@ -1,0 +1,14 @@
+/* px转rem函数
+  『 @px 』按照iphone6适配的，即750尺寸的页面实际所量的尺寸
+  『 @px-rem 』这个变量是用来控制px转rem的开关变量，默认为true,想保留px单位请设为false
+*/
+@browser-default-font-size: 75px; //变量的值可以根据自己需求定义
+// @px-rem: true;
+.function {
+  .px2rem(@px) when (@px-rem = true){
+    return: @px / @browser-default-font-size * 1rem;
+  }
+  .px2rem(@px) when (@px-rem = false){
+    return: @px / 2;
+  }
+}

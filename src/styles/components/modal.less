@@ -1,0 +1,236 @@
+@ModalPrefixCls: -modal;
+.@{prefixCls}@{ModalPrefixCls} {
+  position: relative;
+  width: auto;
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: @modal-zindex;
+    background-color: @fill-mask;
+    &-hidden {
+      display: none;
+    }
+  }
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: @modal-zindex;
+  }
+  &-hidden {
+    display: none !important;
+  }
+  &&-transparent {
+    .@{prefixCls}@{ModalPrefixCls}-content {
+      border-radius: px2rem(@radius-lg);
+      height: auto;
+      padding-top: px2rem(@v-spacing-lg);
+
+      .@{prefixCls}@{ModalPrefixCls}-body {
+        padding: 0 px2rem(@h-spacing-lg) px2rem(@v-spacing-lg);
+      }
+    }
+  }
+  &-content {
+    position: relative;
+    background-color: @fill-base;
+    border: 0;
+    background-clip: padding-box;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    border-radius: px2rem(@radius-lg);
+  }
+  &-header {
+    padding: px2rem(@v-spacing-sm) px2rem(@h-spacing-lg) px2rem(@v-spacing-lg);
+    background: @fill-base;
+  }
+  &-title {
+    margin: 0;
+    .font-dpr(@modal-font-size-heading);
+    color: @color-text-base;
+    text-align: center;
+  }
+  &-close {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    outline: none;
+    position: absolute;
+    right: px2rem(@h-spacing-lg);
+    z-index: 999;
+    height: px2rem(@icon-size-sm);
+    width: px2rem(@icon-size-sm);
+
+    &-x {
+      display: inline-block;
+      width: px2rem(30px);
+      height: px2rem(30px);
+      background-repeat: no-repeat;
+      background-size: cover;
+      .encoded-svg-background('modal_delete');
+    }
+  }
+  &-body {
+    padding: px2rem(@v-spacing-md);
+  }
+  &&-operation {
+    .@{prefixCls}@{ModalPrefixCls}-content {
+      border-radius: px2rem(@radius-lg);
+      height: auto;
+      padding-top: 0;
+
+      .@{prefixCls}@{ModalPrefixCls}-body {
+        padding: 0;
+      }
+
+      .@{prefixCls}@{ModalPrefixCls}-button {
+        color: @color-text-base;
+        text-align: start;
+        padding-left: px2rem(30px);
+      }
+    }
+  }
+
+
+  .button-common() {
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: @color-link;
+    .font-dpr(@link-button-font-size);
+    height: px2rem(@across-button-height);
+    line-height: px2rem(@across-button-height);
+    display: block;
+    .ellipsis();
+  }
+  &-button-group-h {
+    border-top: @border-width-sm solid @border-color-base;
+    display: flex;
+    .@{prefixCls}@{ModalPrefixCls}-button {
+      -webkit-touch-callout: none;
+      flex: 1;
+      .button-common();
+      &:active{
+        background: @modal-button-tap;
+      }
+      &:first-child {
+        color: @color-text-base;
+        border-right: @border-width-sm solid @border-color-base;
+      }
+    }
+  }
+  &-button-group-v {
+    .@{prefixCls}@{ModalPrefixCls}-button {
+      -webkit-touch-callout: none;
+      display: block;
+      border-top: @border-width-sm solid @border-color-base;
+      .button-common();
+      &:active{
+        background: #dddddd;
+      }
+    }
+  }
+  &:active {
+    background-color: @fill-tap;
+  }
+  &-input {
+    border-left: @border-width-sm solid @border-color-base;
+    border-right: @border-width-sm solid @border-color-base;
+    border-bottom: @border-width-sm solid @border-color-base;
+    &:first-child {
+      margin-top: px2rem(@v-spacing-md);
+      border-top: @border-width-sm solid @border-color-base;
+      border-top-left-radius: @radius-sm;
+      border-top-right-radius: @radius-sm;
+    }
+    &:last-child {
+      border-bottom-left-radius: @radius-sm;
+      border-bottom-right-radius: @radius-sm;
+    }
+    input {
+      border: 0;
+      width: 98%;
+      box-sizing: border-box;  // maybe not need it ?
+      margin: 0;
+      padding: px2rem(@v-spacing-xs) 0;
+    }
+  }
+  &&-android {
+    .@{prefixCls}@{ModalPrefixCls}-content {
+      border-radius: 0;
+      padding-top: px2rem(@v-spacing-lg);
+      .@{prefixCls}@{ModalPrefixCls}-header {
+        padding: px2rem(@v-spacing-md) 48px 24px;
+        .@{prefixCls}@{ModalPrefixCls}-title {
+          text-align: left;
+          .font-dpr(@font-size-display-md);
+          color: @color-text-base;
+        }
+      }
+      .@{prefixCls}@{ModalPrefixCls}-body {
+        .font-dpr(@font-size-caption);
+        color: @color-text-base;
+        text-align: left;
+        padding: 0 48px px2rem(@v-spacing-lg);
+        line-height: px2rem(@line-height-paragraph);
+        .@{prefixCls}@{ModalPrefixCls}-input {
+          border-left: 0;
+          border-right: 0;
+          border-radius: 0;
+          &:first-child {
+            border-top: 0;
+          }
+        }
+      }
+      .@{prefixCls}@{ModalPrefixCls}-footer {
+        padding-bottom: 2 * px2rem(@v-spacing-sm);
+        .@{prefixCls}@{ModalPrefixCls}-button-group-h {
+          overflow: hidden;
+          border-top: 0;
+          justify-content: flex-end;
+          padding: 0 2 * px2rem(@v-spacing-sm);
+          .@{prefixCls}@{ModalPrefixCls}-button {
+            flex: initial;
+            margin-left: 6px;
+            padding: 0 px2rem(@h-spacing-lg);
+            height: px2rem(96px);
+            box-sizing: border-box;
+            &:first-child {
+              border-right: 0;
+              color: #777;
+            }
+          }
+        }
+        .@{prefixCls}@{ModalPrefixCls}-button-group-v {
+          display: flex;
+          justify-content: flex-end;
+          overflow: hidden;
+          padding: 0 2 * px2rem(@v-spacing-sm);
+          .@{prefixCls}@{ModalPrefixCls}-button {
+            border-top: 0;
+            padding: 0 px2rem(@h-spacing-lg);
+            margin-left: px2rem(6px);
+            height: px2rem(96px);
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+
+}

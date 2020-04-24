@@ -1,0 +1,69 @@
+@pickerPopupPrefixCls: -picker-popup;
+
+.@{prefixCls}@{pickerPopupPrefixCls} {
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: @fill-base;
+  &-hidden {
+    display: none !important;
+  }
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @picker-zindex;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+  }
+  //弹层遮罩
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: @fill-mask;
+    height: 100%;
+    z-index: @picker-zindex;
+    &-hidden {
+      display: none;
+    }
+  }
+  //弹层头部
+  &-header {
+    background-image: linear-gradient(to bottom, #e7e7e7, #e7e7e7, transparent, transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .hairline-bottom(@border-color-base);
+    & & {
+      &-right {
+        text-align: right;
+      }
+    }
+  }
+  &-item {
+    color: @brand-primary;
+    .font-dpr(@font-size-heading);
+    padding: px2rem(@v-spacing-md) px2rem(@h-spacing-lg);
+    &-active {
+      background-color: @fill-tap;
+    }
+  }
+  &-title {
+    flex: 1;
+    text-align: center;
+    color: @color-text-base;
+  }
+  & &-close {
+    display: none;
+  }
+}
