@@ -1,6 +1,6 @@
 {
   "name": "vie-mobile",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -453,13 +453,12 @@
       "optional": true
     },
     "axios": {
-      "version": "0.16.2",
-      "resolved": "https://registry.npm.taobao.org/axios/download/axios-0.16.2.tgz",
-      "integrity": "sha1-uk+S8XFn37q0CYN4VFS5rBScPG0=",
+      "version": "0.21.1",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz",
+      "integrity": "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==",
       "dev": true,
       "requires": {
-        "follow-redirects": "^1.2.3",
-        "is-buffer": "^1.1.5"
+        "follow-redirects": "^1.10.0"
       }
     },
     "babel-code-frame": {
