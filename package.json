@@ -63,7 +63,7 @@
     "postcss-less": "^1.0.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.8.5",
     "url-loader": "^0.5.8",
     "vue": "^2.4.4",
     "vue-loader": "^12.1.0",
